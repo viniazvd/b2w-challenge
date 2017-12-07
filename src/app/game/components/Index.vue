@@ -1,9 +1,11 @@
 <template>
   
-	<v-container class="mt-5">
+	<v-container>
     <v-layout row wrap justify-center class="mt-5">
       <v-flex xs4 class="text-xs-center">
 
+        <NumPage :numPage="indexPage"></NumPage> 
+        
         <NamePlanet :namePlanet="this.getName[this.indexPagination]"></NamePlanet> 
 
         <v-card class="pb-4 pt-4" color="grey lighten-4">
@@ -65,6 +67,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
+import NumPage from './NumPage'
 import NamePlanet from './NamePlanet'
 import DataPlanet from './DataPlanet'
 import GetFilmsDialog from './GetFilmsDialog'
@@ -74,7 +77,15 @@ import Loader from './Loader'
 
 export default {
 
-  components: { NamePlanet, DataPlanet, GetFilmsDialog, Pagination, Buttons, Loader },
+  components: {
+    NumPage,
+    NamePlanet,
+    DataPlanet,
+    GetFilmsDialog,
+    Pagination,
+    Buttons,
+    Loader
+  },
 
   data () {
     return {
