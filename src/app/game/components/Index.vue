@@ -21,28 +21,17 @@
           <Pagination :propIndexPlanet.sync="indexPlanet" :indexPlanet="indexPlanet" :lengthPlanet="this.planets.length"></Pagination>
         </v-card>
 
-        <!-- <Buttons 
+        <Buttons 
           :propShowButtons="showButtons"
           :propIsActivePreviousPage="isActivePreviousPage"
           :propIsActiveNextPage="isActiveNextPage"
           :propBtnPreviousColor="btnPreviousColor"
-          :propBtnNextColor="btnNextColor">
-        </Buttons> -->
-
-        <v-card flat class="pt-2" v-if="this.showButtons">
-          <v-btn 
-            :class="{ active: isActiveNextPage, colorButtonPrevious: btnPreviousColor }"
-            :disabled="availableToPreviousPage" 
-            @click="previousPage">
-            Previous
-          </v-btn>
-          <v-btn
-            :class="{ active: isActivePreviousPage, colorButtonNext: btnNextColor }"
-            :disabled="availableToNextPage" 
-            @click="nextPage">
-            Next
-          </v-btn>
-        </v-card>
+          :propBtnNextColor="btnNextColor"
+          :propAvailableToPreviousPage="availableToPreviousPage"
+          :propAvailableToNextPage="availableToNextPage"
+          @onPreviousPage="previousPage"
+          @onNextPage="nextPage">
+        </Buttons>
 
         <Loader :propValue="value" :startLoader="show"></Loader>
 
@@ -182,19 +171,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.colorButtonPrevious {
-  color: white;
-  background-color: red;
-}
-
-.colorButtonNext {
-  color: white;
-  background-color: green;
-}
-
-.active {
-  color: white;
-  background-color: gray;
-}
-</style>
