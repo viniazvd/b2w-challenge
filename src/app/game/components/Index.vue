@@ -16,7 +16,7 @@
 
           <GetFilmsDialog :qntFilms="this.getQntFilms" :getFilms="this.getFilms[this.indexPagination]"></GetFilmsDialog>
           
-          <Pagination :propIndexPlanet.sync="indexPlanet" :lengthPlanet="this.planets.length"></Pagination>
+          <Pagination :propIndexPlanet.sync="indexPlanet" :indexPlanet="indexPlanet" :lengthPlanet="this.planets.length"></Pagination>
         </v-card>
 
         <!-- <Buttons 

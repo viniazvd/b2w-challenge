@@ -1,7 +1,8 @@
 <template>
   <v-card flat class="pt-2">
     <v-progress-linear
-      v-model="value"
+      :value="this.propValue"
+      @input="this.changeIndexPlanet"
       :active="show"
       color="blue">
     </v-progress-linear>
@@ -12,7 +13,7 @@
 export default {
   name: 'Loader',
 
-  props: []
+  props: ['propValue']
 }
 </script>
 

@@ -14,10 +14,24 @@
 export default {
   name: 'Pagination',
 
-  props: ['propIndexPlanet', 'lengthPlanet'],
+  props: ['propIndexPlanet', 'lengthPlanet', 'indexPlanet'],
 
   methods: {
     changeIndexPlanet () {
+      if (event.target.innerHTML === 'chevron_left') {
+        const index = this.indexPlanet
+        const previous = index - 1
+        this.$emit('update:propIndexPlanet', previous)
+        return false
+      }
+
+      if (event.target.innerHTML === 'chevron_right') {
+        const index = this.indexPlanet
+        const next = index + 1
+        this.$emit('update:propIndexPlanet', next)
+        return false
+      }
+
       this.$emit('update:propIndexPlanet', parseInt(event.target.innerHTML))
     }
   }
