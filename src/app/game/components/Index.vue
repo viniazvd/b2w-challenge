@@ -44,15 +44,7 @@
           </v-btn>
         </v-card>
 
-        <!-- <Loader :propValue.sync="value"></Loader> -->
-
-        <v-card flat class="pt-2">
-          <v-progress-linear
-            v-model="value"
-            :active="show"
-            color="blue">
-          </v-progress-linear>
-        </v-card>
+        <Loader :propValue="value" :startLoader="show"></Loader>
 
       </v-flex>
 
@@ -151,6 +143,7 @@ export default {
           clearInterval(this.interval)
           this.show = false
           this.showButtons = true
+          this.value = 0
         } else {
           this.value += 25
         }

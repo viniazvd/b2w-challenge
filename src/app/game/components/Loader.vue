@@ -1,9 +1,13 @@
 <template>
   <v-card flat class="pt-2">
+
+    <div v-if="this.loading">
+      loading, please wait a few seconds... {{ this.propValue }}%
+    </div>
+
     <v-progress-linear
       :value="this.propValue"
-      @input="this.changeIndexPlanet"
-      :active="show"
+      :active="this.startLoader"
       color="blue">
     </v-progress-linear>
   </v-card>
@@ -13,7 +17,13 @@
 export default {
   name: 'Loader',
 
-  props: ['propValue']
+  props: ['propValue', 'startLoader'],
+
+  computed: {
+    loading () {
+      if (this.propValue) return true
+    }
+  }
 }
 </script>
 
